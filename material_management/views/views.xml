@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <menuitem id="menu_material" name="Material" sequence="1"/>
+        
+        <!-- Materials -->
+        <record id="material_information_search_view" model="ir.ui.view">
+            <field name="name">material.information.search</field>
+            <field name="model">material.information</field>
+            <field name="arch" type="xml">
+                <search string="Materials">
+                    <field name="type"/>
+                </search>
+            </field>
+        </record>
+        
+        <record id="material_information_tree_view" model="ir.ui.view">
+            <field name="name">material.information.tree</field>
+            <field name="model">material.information</field>
+            <field name="arch" type="xml">
+                <tree string="Materials">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                    <field name="buying_price"/>
+                    <field name="supplier_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="material_information_form_view" model="ir.ui.view">
+            <field name="name">material.information.form</field>
+            <field name="model">material.information</field>
+            <field name="arch" type="xml">
+                <form string="Material">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="type"/>
+                            <field name="buying_price"/>
+                            <field name="supplier_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_material_information_view_form" model="ir.actions.act_window">
+            <field name="name">Materials</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">material.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem action="action_material_information_view_form"
+            id="menu_material_information_form" parent="menu_material" sequence="1"/>
+        
+    </data>
+</odoo>
